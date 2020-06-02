@@ -18,9 +18,11 @@ namespace PetGroom.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<IdentityRole>()
-                .HasData(new IdentityRole { Name = "Admin", NormalizedName = "ADMIN" });
+            builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Groomer", NormalizedName = "GROOMER" });
+                
+            builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Customer", NormalizedName = "CUSTOMER" });
         }
-        public DbSet<PetGroom.Models.Customer> Customer { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Image> Images { get; set; }
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetGroom.Data;
 
 namespace PetGroom.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200602200911_AdminRegChangedToGroomer")]
+    partial class AdminRegChangedToGroomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace PetGroom.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f92f3f14-3765-45eb-9115-9c700ce8483f",
-                            ConcurrencyStamp = "56162bb9-c107-4c94-9ef8-efe257ade8b1",
+                            Id = "fa908405-73ef-4fcf-b994-90a3931c278c",
+                            ConcurrencyStamp = "9d2a4d12-496f-43dc-9244-52d7d95f605e",
                             Name = "Groomer",
                             NormalizedName = "GROOMER"
                         },
                         new
                         {
-                            Id = "7aa78f56-5e29-4c1f-91f5-4b077504d2c8",
-                            ConcurrencyStamp = "2f4839a5-9b17-4514-afcd-4f42d38c5b7b",
+                            Id = "7dda9c92-c864-46a7-b867-ff31e275ad8d",
+                            ConcurrencyStamp = "1441310b-69f7-4b3f-a797-1effd4e4dec7",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -261,24 +263,6 @@ namespace PetGroom.Data.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Customers");
-                });
-
-            modelBuilder.Entity("PetGroom.Models.Image", b =>
-                {
-                    b.Property<int>("ImageId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ImageId");
-
-                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
