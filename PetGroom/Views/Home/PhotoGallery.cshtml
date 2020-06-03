@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewData["Title"] = "PhotoGallery";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+    <h1>PhotoGallery</h1>
+</center>
+
+
+
+<div class="container">
+
+    <div class="mySlides">
+        <div class="numbertext">1 / 6</div>
+        <img src="~/Images/before-and-after-grooming.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">2 / 6</div>
+        <img src="~/Images/beforeafter.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">3 / 6</div>
+        <img src="~/Images/dog-grooming-cover.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">4 / 6</div>
+        <img src="~/Images/LaborDoodle.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">5 / 6</div>
+        <img src="~/Images/OldMan.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">6 / 6</div>
+        <img src="~/Images/ShihTzu.jpg" style="width:100%">
+    </div>
+
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+    <div class="caption-container">
+        <p id="caption"></p>
+       
+    </div>
+
+
+    <div class="row">
+        <div class="column">
+            <img class="demo cursor" src="~/Images/before-and-after-grooming.jpg"  style="width:100%"  onclick="currentSlide(1)" alt="Before and After">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="~/Images/beforeafter.jpg" style="width:100%" onclick="currentSlide(2)" alt="Before and After">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="~/Images/dog-grooming-cover.jpg" style="width:100%" onclick="currentSlide(3)" alt="Before and After">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="~/Images/LaborDoodle.jpg" style="width:100%" onclick="currentSlide(4)" alt="Poodle Cut">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="~/Images/OldMan.jpg" style="width:100%" onclick="currentSlide(5)" alt="Old Man Special">
+        </div>
+        <div class="column">
+            <img class="demo cursor" src="~/Images/ShihTzu.jpg" style="width:100%" onclick="currentSlide(6)" alt="Little Pup Cut">
+        </div>
+    </div>
+</div>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body{
+        background-color:lightslategrey;
+    }
+
+   
+    .container {
+        position: relative;
+    }
+
+    
+    .mySlides {
+        display: none;
+    }
+
+    
+    .cursor {
+        cursor: pointer;
+    }
+
+   
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 40%;
+        width: auto;
+        padding: 16px;
+        margin-top: -50px;
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+
+   
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+      
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+    
+    .numbertext {
+        color: #ff0000;
+        font-size: 14px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    
+    .caption-container {
+        text-align: center;
+        background-color: #222;
+        padding: 2px 16px;
+        color: white;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    
+    .column {
+        float: left;
+        width: 16.66%;
+    }
+
+    
+    .demo {
+        opacity: 0.6;
+    }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+
+</style>
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("demo");
+        var captionText = document.getElementById("caption");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+
+</script>
