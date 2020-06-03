@@ -15,17 +15,25 @@ namespace PetGroom.Data
         {
       
         }
+
+       
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Groomer", NormalizedName = "GROOMER" });
                 
             builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Customer", NormalizedName = "CUSTOMER" });
+            builder.Entity<IdentityRole>().HasData(new IdentityRole { Name = "Employee", NormalizedName = "EMPLOYEE" });
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Groomer> Groomers { get; set; }
         public DbSet<Animal> Animals { get; set; }
-        public DbSet<PetGroom.Models.GroomService> GroomService { get; set; }
+        public DbSet<GroomService> GroomServices { get; set; }
+
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
+        
     }
 }

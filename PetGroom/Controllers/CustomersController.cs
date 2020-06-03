@@ -183,14 +183,14 @@ namespace PetGroom.Controllers
         }
         [HttpGet]
 
-        public ActionResult CustomerAnimalView(Animal animal)
+        public ActionResult CustomerAnimalView(int id,Animal animal)
         {
             Animal animal1 = new Animal();
 
 
 
 
-            //var applicationDbContext = _context.Animals.Where(i => i.AnimalId == ).FirstOrDefault();
+            var applicationDbContext = _context.Animals.Where(i => i.AnimalId == id).FirstOrDefault();
             return View(animal);
 
         }
