@@ -167,21 +167,21 @@ namespace PetGroom.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View();
+            return View(ImageModel);
 
         }
 
         [HttpGet]
 
-        public ActionResult GroomersImageView(int id)
+        public ActionResult GroomersImageView(int id, Image Image)
         {
-            Image imageModel = new Image();
+            Image ImageModel = new Image();
 
 
 
 
             var applicationDbContext = _context.Images.Where(i => i.ImageId == id).FirstOrDefault();
-            return View(imageModel);
+            return View(ImageModel);
 
         }
 
