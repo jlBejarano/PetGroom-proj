@@ -24,5 +24,6 @@ namespace PetGroom.Data
         }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<Groomer> Groomers { get; set; }
     }
 }

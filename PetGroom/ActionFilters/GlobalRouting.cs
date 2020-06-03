@@ -29,6 +29,10 @@ namespace PetGroom.ActionFilters
                 {
                     context.Result = new RedirectToActionResult("Index", "Employees", null);
                 }
+                else if (_claimsPrincipal.IsInRole("Groomer"))
+                {
+                    context.Result = new RedirectToActionResult("Index", "Groomers", null);
+                }
             }
         }
 

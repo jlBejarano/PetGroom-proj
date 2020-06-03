@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetGroom.Data;
 
 namespace PetGroom.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200602224953_AddedGroomerModelController")]
+    partial class AddedGroomerModelController
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,15 @@ namespace PetGroom.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e5b63522-22e1-4892-9ae1-77a943a52e4a",
-                            ConcurrencyStamp = "fad9af21-3c68-4bde-9f3f-285f28806031",
+                            Id = "946591e3-060e-4ec1-ac0a-c52f5ba3c2c9",
+                            ConcurrencyStamp = "b5cc3339-6856-40d3-8dc5-a34c0614333f",
                             Name = "Groomer",
                             NormalizedName = "GROOMER"
                         },
                         new
                         {
-                            Id = "9d90f83f-a4cf-4078-816e-88958fb3b6e8",
-                            ConcurrencyStamp = "ae2807f9-008a-4c14-a872-acc74e9103b9",
+                            Id = "49128318-0f42-4220-af03-717b6a1bed0f",
+                            ConcurrencyStamp = "c69043fe-7966-4e09-b743-f8688e256735",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -275,7 +277,7 @@ namespace PetGroom.Data.Migrations
 
                     b.HasKey("GroomerId");
 
-                    b.ToTable("Groomers");
+                    b.ToTable("Groomer");
                 });
 
             modelBuilder.Entity("PetGroom.Models.Image", b =>
