@@ -18,6 +18,7 @@ namespace PetGroom.Models
         public string Temper { get; set; }
         public string MedicalConditions { get; set; }
         public string Allergies { get; set; }
+        public int Price { get; set; }
         
     }
 }

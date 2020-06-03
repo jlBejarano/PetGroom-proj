@@ -12,6 +12,7 @@ namespace PetGroom.Models
 
         public int GrooomServiceId { get; set; }
         public string ServiceType { get; set; }
+
         public int Price { get; set; }
         public int NumberOfAnimals { get; set; }
     }

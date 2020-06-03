@@ -156,5 +156,49 @@ namespace PetGroom.Controllers
         {
             return _context.Customers.Any(e => e.CustomerId == id);
         }
+
+        [HttpGet]
+        public ActionResult AddAnimal()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddAnimal(Animal animal)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(animal);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(CustomerAnimalView));
+            }
+
+            return View(animal);
+
+        }
+        [HttpGet]
+
+        public ActionResult CustomerAnimalView(Animal animal)
+        {
+            Animal animal1 = new Animal();
+
+
+
+
+            //var applicationDbContext = _context.Animals.Where(i => i.AnimalId == ).FirstOrDefault();
+            return View(animal);
+
+        }
+
+        [HttpGet]
+        public ActionResult GroomingServices()
+        {
+            return View();
+        }
     }
 }
