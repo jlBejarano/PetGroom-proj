@@ -156,7 +156,13 @@ namespace PetGroom.Controllers
             return _context.Employees.Any(e => e.EmployeeId == id);
         }
 
+        public ActionResult CustomerProfile(string item)
+        {
+            Customer customer = _context.Customers.Where(c => c.IdentityUserId == item).SingleOrDefault();
+            return View(customer);
+        }
 
-       
+
+
     }
 }
