@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +11,6 @@ using PetGroom.Models;
 
 namespace PetGroom.Controllers
 {
-    [Authorize(Roles = "Customer")]
     public class CustomersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,10 +21,14 @@ namespace PetGroom.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index()
+        public async Task<ActionResult> Index()
         {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var customer = _context.Customers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
             var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            return View(customer);
+            // var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
+            //return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -58,7 +61,7 @@ namespace PetGroom.Controllers
        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,CustomerName,StreetAddress,City,ZipCode,CustomerPhoneNumber,IdentityUserId")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerId,CustomerName,StreetAddress,City,ZipCode,CustomerPhoneNumber,AnimalId,PetName,Breed,Weight,Age,Temper,MedicalConditions,Allergies,IdentityUserId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -88,10 +91,10 @@ namespace PetGroom.Controllers
         }
 
         // POST: Customers/Edit/5
-        
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,CustomerName,StreetAddress,City,ZipCode,CustomerPhoneNumber,IdentityUserId")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,CustomerName,StreetAddress,City,ZipCode,CustomerPhoneNumber,AnimalId,PetName,Breed,Weight,Age,Temper,MedicalConditions,Allergies,IdentityUserId")] Customer customer)
         {
             if (id != customer.CustomerId)
             {
@@ -155,44 +158,6 @@ namespace PetGroom.Controllers
         private bool CustomerExists(int id)
         {
             return _context.Customers.Any(e => e.CustomerId == id);
-        }
-
-        [HttpGet]
-        public ActionResult AddAnimal()
-        {
-
-            return View();
-        }
-
-        [HttpPost]
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddAnimal(Animal animal)
-        {
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(animal);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(CustomerAnimalView));
-            }
-
-            return View(animal);
-
-        }
-        [HttpGet]
-
-        public ActionResult CustomerAnimalView(int id,Animal animal)
-        {
-            Animal animal1 = new Animal();
-
-
-
-
-            var applicationDbContext = _context.Animals.Where(i => i.AnimalId == id).FirstOrDefault();
-            return View(animal);
-
         }
 
         [HttpGet]

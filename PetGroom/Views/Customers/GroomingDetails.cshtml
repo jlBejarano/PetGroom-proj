@@ -1,0 +1,55 @@
+﻿@model PetGroom.Models.GroomService
+
+@{
+    ViewData["Title"] = "GroomingDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GroomingDetails</h1>
+
+<div>
+    <h4>GroomService</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ServiceType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ServiceType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HairCut)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HairCut)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PetBath)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PetBath)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NailTrim)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NailTrim)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PetMassage)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PetMassage)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfAnimals)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfAnimals)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.GrooomServiceId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

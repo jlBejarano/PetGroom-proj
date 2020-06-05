@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetGroom.Data;
 
 namespace PetGroom.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200605152904_AnimalClassMovedToCustomer")]
+    partial class AnimalClassMovedToCustomer
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,22 +50,22 @@ namespace PetGroom.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bb846536-b8b7-459d-99dd-961779803e66",
-                            ConcurrencyStamp = "b4d54b16-0488-457c-9b9e-b5d1f267e151",
+                            Id = "caf85867-7163-495c-8e2a-acc7347f5084",
+                            ConcurrencyStamp = "05401987-895e-41a2-ad04-542715447f94",
                             Name = "Groomer",
                             NormalizedName = "GROOMER"
                         },
                         new
                         {
-                            Id = "7321f223-3c6d-4a3c-a75f-55c5f8baa0b6",
-                            ConcurrencyStamp = "ad633179-c7b2-4e4c-b8ad-9adcdc8c3d1c",
+                            Id = "d2d2b9a8-8026-41e9-86fd-839adba486a6",
+                            ConcurrencyStamp = "b5b6e9e4-75d3-42d5-b2e0-c24e9114fb03",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         },
                         new
                         {
-                            Id = "142b7f79-002c-4bcf-acdf-a2b52268e9df",
-                            ConcurrencyStamp = "2f90f0a3-e270-4ce6-82b7-8ebe86aa8fae",
+                            Id = "a9d8d6e5-17cd-4caa-96b2-f7c2b639c8ef",
+                            ConcurrencyStamp = "fc6978c0-5a82-4a6f-ac20-cd881576ae1b",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         });
@@ -275,9 +277,6 @@ namespace PetGroom.Data.Migrations
                     b.Property<string>("PetName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("PickUpDropOff")
-                        .HasColumnType("bit");
-
                     b.Property<string>("StreetAddress")
                         .HasColumnType("nvarchar(max)");
 
@@ -335,20 +334,11 @@ namespace PetGroom.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("HairCut")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("NailTrim")
-                        .HasColumnType("bit");
-
                     b.Property<int>("NumberOfAnimals")
                         .HasColumnType("int");
 
-                    b.Property<bool>("PetBath")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("PetMassage")
-                        .HasColumnType("bit");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<string>("ServiceType")
                         .HasColumnType("nvarchar(max)");

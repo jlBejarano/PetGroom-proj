@@ -6,9 +6,11 @@
 }
 
 <h1>GroomingServices</h1>
-
+ 
 <h4>GroomService</h4>
 <hr />
+<img src="~/Images/bath-and-grooming-services.jpg" alt="Grooming serivce" width="400" height="400" style="float:left;
+ border:5px solid black" />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="GroomingServices">
@@ -18,10 +20,25 @@
                 <input asp-for="ServiceType" class="form-control" />
                 <span asp-validation-for="ServiceType" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HairCut" /> @Html.DisplayNameFor(model => model.HairCut)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PetBath" /> @Html.DisplayNameFor(model => model.PetBath)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="NailTrim" /> @Html.DisplayNameFor(model => model.NailTrim)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PetMassage" /> @Html.DisplayNameFor(model => model.PetMassage)
+                </label>
             </div>
             <div class="form-group">
                 <label asp-for="NumberOfAnimals" class="control-label"></label>
@@ -31,6 +48,7 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
         </form>
     </div>
 </div>

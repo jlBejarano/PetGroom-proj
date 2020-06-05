@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -156,10 +157,16 @@ namespace PetGroom.Controllers
             return _context.Employees.Any(e => e.EmployeeId == id);
         }
 
-        public ActionResult CustomerProfile(string item)
+        public ActionResult CustomerProfile()
         {
-            Customer customer = _context.Customers.Where(c => c.IdentityUserId == item).SingleOrDefault();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var customer = _context.Customers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
             return View(customer);
+        }
+
+        public ActionResult EmployeeSchedule()
+        {
+            return View();
         }
 
 

@@ -29,7 +29,7 @@ namespace PetGroom.Data
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Groomer> Groomers { get; set; }
-        public DbSet<Animal> Animals { get; set; }
+        
         public DbSet<GroomService> GroomServices { get; set; }
 
         public DbSet<Employee> Employees { get; set; }

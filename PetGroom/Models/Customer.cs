@@ -17,6 +17,16 @@ namespace PetGroom.Models
         public string City { get; set; }
         public int ZipCode { get; set; }
         public double CustomerPhoneNumber { get; set; }
+        public int AnimalId { get; set; }
+        public string PetName { get; set; }
+        public string Breed { get; set; }
+        public int Weight { get; set; }
+        public int Age { get; set; }
+        public string Temper { get; set; }
+        public string MedicalConditions { get; set; }
+        public bool Allergies { get; set; }
+        public bool PickUpDropOff { get; set; }
+
 
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
