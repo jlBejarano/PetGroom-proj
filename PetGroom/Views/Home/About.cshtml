@@ -3,9 +3,108 @@
     ViewData["Title"] = "About";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<center>
-    <h1>About Me</h1>
-    <h2>The Love For Animals</h2>
-</center>
+    <center>
+        <h1>About Me</h1>
+        <h2>The Love For Animals</h2>
+        <div>
+            <a href="https://m.facebook.com/kaylasprettypaws">
+                Check out my grooming facebook page!
+            </a>
+        </div>
+
+        <div>
+            <a href="https://www.rover.com/sit/kaylak17">
+                If you need pet sitting, check me out here!
+            </a>
+        </div>
+        <div>
+            <a href="https://www.thumbtack.com/nj/trenton/mobile-dog-grooming/kaylas-pretty-paws-my-home-due-to-covid19/service/339699406164303893">
+                To leave a review or schedule an appointment click here!
+            </a>
+
+        </div>
+
+    </center>
 
 
+<div class="row">
+    <div class="column">
+        <img src="~/Images/Bell&Pup.jpg"
+             style="width:100%" />
+        <img src="~/Images/Bison&Pup.jpg"
+             style="width:100%" />
+        <img src="~/Images/Bison&Zoe.jpg"
+             style="width:100%" />
+        <img src="~/Images/Bella&Pup.jpg"
+             style="width:100%" />
+        <img src="~/Images/BisonandBolt (3).jpg"
+             style="width:100%" />
+       
+
+    </div>
+    <div class="column">
+        <img src="~/Images/Lake.jpg"
+             style="width:100%" />
+        <img src="~/Images/Me&Bison.jpg"
+             style="width:100%" />
+        <img src="~/Images/Water.jpg"
+             style="width:100%" />
+        <img src="~/Images/Zoe.jpg"
+             style="width:100%" />
+    </div>
+    <div class="column">
+        <img src="~/Images/Bell&Pup.jpg"
+             style="width:100%" />
+        <img src="~/Images/Bison&Pup.jpg" 
+             style="width:100%" />
+        <img src="~/Images/Bison&Zoe.jpg"
+             style="width:100%" />
+        <img src="~/Images/Bella&Pup.jpg" 
+             style="width:100%" />
+        <img src="~/Images/BisonandBolt (3).jpg"
+             style="width:100%" />
+        
+    </div>
+    <div class="column">
+        <img src="~/Images/Lake.jpg" 
+             style="width:100%" />
+        <img src="~/Images/Me&Bison.jpg" 
+             style="width:100%" />
+        <img src="~/Images/Water.jpg"
+             style="width:100%" />
+        <img src="~/Images/Zoe.jpg"
+             style="width:100%" />
+    </div>
+    <style>
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        .column{
+            flex: 50%;
+            padding: 0 4px;
+        }
+
+        .column img{
+            margin-top: 8px;
+            vertical-align: middle;
+        }
+    </style>
+
+    
+    <script>
+        var elements = document.getElementsByClassName("column");
+
+        var i;
+
+        function one() {
+            for (i = 0; i < elements.length; i++) {
+                elements[i].style.msflex = "25%";
+                elements[i].style.flex = "25%";
+            }
+        }
+    </script>
+
+</div>
