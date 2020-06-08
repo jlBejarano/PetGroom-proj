@@ -25,10 +25,10 @@ namespace PetGroom.Controllers
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var customer = _context.Customers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
+            //var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
+            //return View(customer);
             var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
-            return View(customer);
-            // var applicationDbContext = _context.Customers.Include(c => c.IdentityUser);
-            //return View(await applicationDbContext.ToListAsync());
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Customers/Details/5

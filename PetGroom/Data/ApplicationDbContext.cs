@@ -16,7 +16,9 @@ namespace PetGroom.Data
       
         }
 
-       
+        public ApplicationDbContext()
+        {
+        }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -34,6 +36,7 @@ namespace PetGroom.Data
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<Event> Events { get; set; }
         
     }
 }

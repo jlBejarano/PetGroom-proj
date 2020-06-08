@@ -7,18 +7,18 @@
 
 <h1>CustomerProfile</h1>
 
+
+<img src="~/Images/Salon Bath Prices Web 2020.webp" style="width:50%" />
+
 <div>
     <h4>Customer</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CustomerName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.CustomerName)
-        </dd>
+        
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.StreetAddress)
+            
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.StreetAddress)
@@ -34,59 +34,45 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.ZipCode)
+
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CustomerPhoneNumber)
+            <li>123456789</li>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CustomerPhoneNumber)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.IdentityUser)
-        </dt>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.PetName)
+            <li>Bruno</li>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PetName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Breed)
+            <li>PitBull</li>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Breed)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Weight)
+            <li>50lbs</li>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Weight)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Age)
+            <li>5 years old</li>
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Age)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Temper)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Temper)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.MedicalConditions)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.MedicalConditions)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Allergies)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Allergies)
-        </dd>
-        
+
 
     </dl>
 </div>
@@ -99,26 +85,26 @@
 <script type="text/javascript">
 
     function initMap() {
-
+        //map..
 
 
         var map = new google.maps.Map(document.getElementById('dvMap'), {
             center: {
-                lat: 40.2206052,
-                lng: 74.7597935
+                lat: 10.9968683,
+                lng: 76.00882
             },
             zoom: 15
         });
-
+        //marker..
         var marker = new google.maps.Marker({
             position: {
-                lat: 40.2206052,
-                lng: 74.7597935
+                lat: 10.9968683,
+                lng: 76.00882
             },
             map: map,
             draggable: true
         });
-
+        //dragend event of marker
         google.maps.event.addListener(marker, 'dragend', function () {
             var Lats = marker.getPosition().lat();
             var Longs = marker.getPosition().lng();
@@ -130,10 +116,14 @@
 
 
 
-<div>
 
-</div>
-<div>
 
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+    <div>
+
+    </div>
+    <div>
+
+        <a asp-action="Index">Back to List</a>
+    </div>

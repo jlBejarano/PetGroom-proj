@@ -49,6 +49,7 @@ namespace PetGroom.Controllers
             return View();
         }
 
+        // POST: Groomers/Create
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -79,8 +80,8 @@ namespace PetGroom.Controllers
             return View(groomer);
         }
 
-        // POST: Groomers/Edit
-        
+        // POST: Groomers/Edit/5
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("GroomerId,GroomerName")] Groomer groomer)
@@ -147,7 +148,6 @@ namespace PetGroom.Controllers
             return _context.Groomers.Any(e => e.GroomerId == id);
         }
 
-        
         [HttpGet]
 
         public ActionResult Add()
@@ -187,3 +187,4 @@ namespace PetGroom.Controllers
 
     }
 }
+

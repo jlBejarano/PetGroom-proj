@@ -5,12 +5,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PetGroom.Data;
 using PetGroom.Models;
 
 namespace PetGroom.Controllers
 {
     public class HomeController : Controller
     {
+        
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -32,6 +35,13 @@ namespace PetGroom.Controllers
         {
             return View();
         }
+
+        public ActionResult Appointments()
+        {
+            return View();
+        }
+       
+            
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

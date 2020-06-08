@@ -19,6 +19,7 @@ namespace PetGroom.Controllers
     public class EmployeesController : Controller
     {
         private readonly ApplicationDbContext _context;
+       
         
 
         public EmployeesController(ApplicationDbContext context)
@@ -157,11 +158,13 @@ namespace PetGroom.Controllers
             return _context.Employees.Any(e => e.EmployeeId == id);
         }
 
-        public ActionResult CustomerProfile()
+        public ActionResult CustomerProfile(string item)
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var customer = _context.Customers.Where(c => c.IdentityUserId == userId).SingleOrDefault();
-            return View(customer);
+            //Customer customer = _context.Customers.Where(c => c.IdentityUserId == item).SingleOrDefault();
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var customer = _context.Customers.Where(c => c.IdentityUserId == item).SingleOrDefault();
+         
+            return View();
         }
 
         public ActionResult EmployeeSchedule()
